@@ -93,7 +93,7 @@ public class DiscreteSocket {
   }
   
   
-  /** Main sends a message to a server and waits for a response. */
+  /** Main runs a client for a UDP Echo service. */
   public static void main(String[] args) {
     try {
       String host = args[0];

@@ -86,4 +86,37 @@ public class StreamingSocket {
     return socket.toString();
   }
   
+  
+  /** 
+   * main runs a client for an TCP Echo service. It takes two arguments, 
+   * the host name and port of the Echo server. 
+   */
+  public static void main(String[] args) {
+    try {
+      String host = args[0];
+      int port = Integer.parseInt(args[1]);
+      
+      StreamingSocket socket = new StreamingSocket(new Socket(host, port));
+      
+      BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
+      
+      while(true) {
+        
+          System.out.print("Enter message: ");
+          String msg = stdin.readLine();
+        
+          socket.println(msg);
+          
+          String resp = socket.readLine();
+          System.out.println("response: " + resp + "\n");
+        
+      }
+    }
+    catch (Exception e) {
+      // pokemon exception
+      e.printStackTrace();
+    }
+  }
+  
 }
+

@@ -13,7 +13,7 @@ public class UDPEchoServer {
   
   public void serve() {
     try {
-      DiscreteSocket socket = new DiscreteSocket(new DatagramSocket(port));
+      DiscreteSocket socket = new DiscreteSocket(port);
       
       System.out.println("UDP Echo Server is running.");
       
